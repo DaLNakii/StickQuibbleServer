@@ -122,8 +122,7 @@ public class Session implements Runnable {
 	}
 	
 	private void handleAction(byte[] buff, int offset, int len) {
-		ByteBuffer buffer = ByteBuffer.wrap(buff, offset, len);
-		buffer.order(ByteOrder.LITTLE_ENDIAN);
+		ByteBuffer buffer = ByteBuffer.wrap(buff, offset, len).order(ByteOrder.LITTLE_ENDIAN);
 		
 		int actionCode = buffer.get();
 		

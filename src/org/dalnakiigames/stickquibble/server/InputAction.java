@@ -31,8 +31,7 @@ public class InputAction extends NetworkAction {
 
 	@Override
 	public byte[] Serialize() {
-		ByteBuffer buffer = ByteBuffer.allocate(getSize());
-		buffer.order(ByteOrder.LITTLE_ENDIAN);
+		ByteBuffer buffer = ByteBuffer.allocate(getSize()).order(ByteOrder.LITTLE_ENDIAN);
 		buffer.put(CODE);
 		buffer.put(_keyState);
 		buffer.putInt(_keyCode);

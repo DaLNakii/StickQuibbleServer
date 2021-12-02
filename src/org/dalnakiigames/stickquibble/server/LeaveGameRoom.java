@@ -25,8 +25,7 @@ public class LeaveGameRoom extends NetworkAction {
 
 	@Override
 	public byte[] Serialize() {
-		ByteBuffer buffer = ByteBuffer.allocate(getSize());
-		buffer.order(ByteOrder.LITTLE_ENDIAN);
+		ByteBuffer buffer = ByteBuffer.allocate(getSize()).order(ByteOrder.LITTLE_ENDIAN);
 		buffer.put(CODE);
 		buffer.putInt(_roomID);
 		return buffer.array();
@@ -42,8 +41,6 @@ public class LeaveGameRoom extends NetworkAction {
 	}
 
 	@Override
-	public void Execute() {
-
-	}
+	public void Execute() {}
 
 }

@@ -37,8 +37,14 @@ public class GameRoom {
 		System.out.println("Room " + ID + " created.");
 	}
 	
-	public void Send(byte[] data) {
+	public GameRoom Send(byte[] data) {
 		for(Session s : Sessions) s.Send(data);
+		return this;
+	}
+	
+	public GameRoom Send(NetworkAction action) {
+		Send(action.Serialize());
+		return this;
 	}
 	
 	public void Close(int id) {
